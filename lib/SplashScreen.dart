@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cia_flutter/Constant.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const String routeName = "/splash";
   @override
   SplashScreenState createState() => new SplashScreenState();
 }
@@ -21,7 +22,7 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   void navigationPage() {
-    Navigator.of(context).pushReplacementNamed(HOME_SCREEN);
+    Navigator.of(context).pushReplacementNamed('/loginPage');
   }
 
   @override
