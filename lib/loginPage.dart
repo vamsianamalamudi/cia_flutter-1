@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget{
 class _LoginPageSate extends State<LoginPage>{
   String _email;
   String _password;
+  String token;
 /*
   Map<String, String> body = {
     'username': 'sufian',
@@ -30,13 +31,16 @@ class _LoginPageSate extends State<LoginPage>{
 print(body);
     var data = await http.post(url,body: json.encode(body),
                                 headers:  {
-                                  "Accept": "application/json",
-                                  "Content-Type": "application/x-www-form-urlencoded"
+                                  "Accept": "application/x-www-form-urlencoded",
+                                  "Content-Type": "application/json"
                                 },  encoding: Encoding.getByName("utf-8"));
 
     var jsonData =  json.decode(data.body);
     print("surya");
-    print(jsonData);
+    print(jsonData['token']);
+    token = jsonData['token'];
+
+
 /*
     if (data.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
@@ -116,18 +120,17 @@ print(body);
                                           child: OutlineButton(
                                               child: Text("Login "),
                                               onPressed:(){
-                                                try{
+                                          /*      try{
                                                   _login();
                                                   Navigator.push(
                                                     context, new MaterialPageRoute(
                                                     builder: (context) => new HomeScreen()));
-
                                                 } catch (exception) {
                                                   print("Error Decoding Data (login): $exception");
-                                                }
-                                                /*Navigator.push(
+                                                }*/
+                                                Navigator.push(
                                                     context, new MaterialPageRoute(
-                                                    builder: (context) => new HomeScreen()));*/
+                                                    builder: (context) => new HomeScreen()));
                                               }
                                           ),
                                           flex: 1,
@@ -223,6 +226,8 @@ print(body);
   initState() {
 
     super.initState();
+    _login();
+
 
 
 
