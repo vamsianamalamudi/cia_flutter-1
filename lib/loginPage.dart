@@ -16,20 +16,42 @@ class LoginPage extends StatefulWidget{
 class _LoginPageSate extends State<LoginPage>{
   String _email;
   String _password;
-
+/*
   Map<String, String> body = {
     'username': 'sufian',
     'password': 'sufiboy',
 
-  };
+  };*/
 
   Future<Token> _login() async {
-    var data = await http.post('139.59.61.35/sufi/api/signin',body: json.encode(body));
+    var url = "http://139.59.61.35/sufi/api/signin";
+
+    Map<String, dynamic> body = {'username': 'sufian', 'password': 'sufiboy'};
+print(body);
+    var data = await http.post(url,body: json.encode(body),
+                                headers:  {
+                                  "Accept": "application/json",
+                                  "Content-Type": "application/x-www-form-urlencoded"
+                                },  encoding: Encoding.getByName("utf-8"));
+
+    var jsonData =  json.decode(data.body);
+    print("surya");
+    print(jsonData);
+/*
+    if (data.statusCode == 200) {
+      // If the call to the server was successful, parse the JSON
+      var jsonData =  json.decode(data.body);
+      print("surya");
+      print(jsonData);
+      //return Login.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load post');
+    }
+*/
 
     // this is response
-    var jsonData =  json.decode(data.body);
 
-    print(jsonData);
 
 
   }
@@ -59,7 +81,7 @@ class _LoginPageSate extends State<LoginPage>{
             width: 110.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/img/login_logo.png'),
+                  image: AssetImage('assets/images/logo.png'),
                   fit: BoxFit.fitHeight),
               borderRadius: BorderRadius.only
                 (
@@ -94,9 +116,18 @@ class _LoginPageSate extends State<LoginPage>{
                                           child: OutlineButton(
                                               child: Text("Login "),
                                               onPressed:(){
-                                                Navigator.push(
+                                                try{
+                                                  _login();
+                                                  Navigator.push(
                                                     context, new MaterialPageRoute(
                                                     builder: (context) => new HomeScreen()));
+
+                                                } catch (exception) {
+                                                  print("Error Decoding Data (login): $exception");
+                                                }
+                                                /*Navigator.push(
+                                                    context, new MaterialPageRoute(
+                                                    builder: (context) => new HomeScreen()));*/
                                               }
                                           ),
                                           flex: 1,
@@ -186,4 +217,15 @@ class _LoginPageSate extends State<LoginPage>{
     );
 
   }
+
+
+  @override
+  initState() {
+
+    super.initState();
+
+
+
+  }
+
 }
