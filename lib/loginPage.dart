@@ -3,6 +3,7 @@ import 'package:cia_flutter/Token.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
+import 'simple_round_button.dart';
 
 import 'package:cia_flutter/HomeScreen.dart';
 
@@ -10,10 +11,16 @@ class LoginPage extends StatefulWidget{
 
   static const String routeName = "/loginPage";
 
+
+
   @override
   _LoginPageSate createState()=>_LoginPageSate();
 }
 class _LoginPageSate extends State<LoginPage>{
+  TextEditingController _controllerUsername = TextEditingController();
+  TextEditingController _controllerPassword = TextEditingController();
+
+
   String _email;
   String _password;
   String token;
@@ -24,10 +31,10 @@ class _LoginPageSate extends State<LoginPage>{
 
   };*/
 
-  Future<Token> _login() async {
+  Future<Token> _login(String username,String password) async {
     var url = "http://139.59.61.35/sufi/api/signin";
 
-    Map<String, dynamic> body = {'username': 'sufian', 'password': 'sufiboy'};
+    Map<String, dynamic> body = {'username': '$username', 'password': '$password'};
 print(body);
     var data = await http.post(url,body: json.encode(body),
                                 headers:  {
@@ -41,18 +48,21 @@ print(body);
     token = jsonData['token'];
 
 
-/*
+
     if (data.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       var jsonData =  json.decode(data.body);
       print("surya");
       print(jsonData);
+      Navigator.pushReplacement(
+          context, new MaterialPageRoute(
+          builder: (context) => new HomeScreen(token: token,)));
+
       //return Login.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
       throw Exception('Failed to load post');
     }
-*/
 
     // this is response
 
@@ -60,8 +70,12 @@ print(body);
 
   }
 
+
+
   @override
   Widget build(BuildContext context) {
+    // Note: This is a GlobalKey<FormState>, not a GlobalKey<MyCustomFormState>!
+    final _formKey = GlobalKey<FormState>();
 
 
     // TODO: implement build
@@ -81,77 +95,95 @@ print(body);
         shrinkWrap: true,
         children: <Widget>[
           Container(
-            height: 400.0,
+            margin: EdgeInsets.all(30.0),
+            //padding: EdgeInsets.all(10.0),
+            height: 200.0,
             width: 110.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/logo.png'),
+
+                  image: AssetImage('assets/images/logo2.png'),
                   fit: BoxFit.fitHeight),
               borderRadius: BorderRadius.only
                 (
-                  bottomLeft: Radius.circular(500.0),
-                  bottomRight: Radius.circular(500.0)
+                  bottomLeft: Radius.circular(100.0),
+                  bottomRight: Radius.circular(100.0)
               ),
             ),
           ),
+          Center(
+            child: Text("AVENGERS INITIATIVE",style: TextStyle(
+              fontWeight: FontWeight.w200,
+              fontSize: 30.0,
+            ),),
+          )
+          ,
           Center(
             child: Padding(
               padding: const EdgeInsets.all(28.0),
               child: Center(
                   child: Form(
-                    //key: formkey,
+                  //  key: _formKey,
                     child: Center(
                       child: ListView(
                         shrinkWrap: true,
                         children: <Widget>[
 
-                          _input("required email",false,"Email",'Enter your Email',(value) => _email = value),
+                          _input("required email",false,"Email",'Enter your Email',(value) => _email = "surya",_controllerUsername),
                           SizedBox(width: 20.0,height: 20.0,),
-                          _input("required password",true,"Password",'Password',(value) => _password = value),
+                          _input("required password",true,"Password",'Password',(value) => _password = "123",_controllerPassword),
                           new Padding(padding: EdgeInsets.all(8.0),
                             child: Center(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Column(
                                   children: <Widget>[
-                                    Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          child: OutlineButton(
-                                              child: Text("Login "),
-                                              onPressed:(){
-                                          /*      try{
-                                                  _login();
-                                                  Navigator.push(
-                                                    context, new MaterialPageRoute(
-                                                    builder: (context) => new HomeScreen()));
-                                                } catch (exception) {
-                                                  print("Error Decoding Data (login): $exception");
-                                                }*/
-                                                Navigator.push(
-                                                    context, new MaterialPageRoute(
-                                                    builder: (context) => new HomeScreen()));
-                                              }
-                                          ),
-                                          flex: 1,
-                                        ),
-                                        SizedBox(height: 18.0,width: 18.0,),
+                                                SimpleRoundButton(
+                                                  backgroundColor: Color.fromRGBO(191, 51, 48, 1),
+                                                  buttonText: Text("LOGIN",
+                                                    style: TextStyle(
+                                                        color: Colors.white
+                                                    ),
+                                                  ),
+                                                  textColor: Colors.white,
+                                                    onPressed:(){
+                                                      print(_controllerUsername.text);
+                                                      print(_controllerPassword.text);
+                                                      _login(_controllerUsername.text, _controllerPassword.text);
 
-                                        SizedBox(height: 18.0,width: 18.0,),
-                                        Expanded(
-                                          flex: 1,
-                                          child: OutlineButton(
+                                                      /*      try{
+                                                                        _login();
+                                                                        Navigator.push(
+                                                                        context, new MaterialPageRoute(
+                                                                        builder: (context) => new HomeScreen()));
+                                                                        } catch (exception) {
+                                                                        print("Error Decoding Data (login): $exception");
+                                                                      }*/
 
-                                             // child: Image(image: AssetImage("assets/img/google1.png"),height:28.0,fit: BoxFit.fitHeight),
-                                              onPressed: (){
+                                                    }
+                                                ),
+                                               /* OutlineButton(
 
-                                              }),
-                                        )
+                                                    child: Text("Login "),
+                                                    onPressed:(){
+                                                            print(_controllerUsername.text);
+                                                            print(_controllerPassword.text);
+                                                            _login(_controllerUsername.text, _controllerPassword.text);
 
-                                      ],
-                                    ),
-                                    SizedBox(height: 15.0),
-                                    Row(
+                                                            *//*      try{
+                                                                        _login();
+                                                                        Navigator.push(
+                                                                        context, new MaterialPageRoute(
+                                                                        builder: (context) => new HomeScreen()));
+                                                                        } catch (exception) {
+                                                                        print("Error Decoding Data (login): $exception");
+                                                                      }*//*
+
+                                                                        }
+                                                                      ),*/
+
+                                                                    SizedBox(height: 0.0),
+                                   /* Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: <Widget>[
                                         Text(
@@ -170,12 +202,25 @@ print(body);
                                           ),
                                         )
                                       ],
-                                    ),
-                                    OutlineButton(
+                                    ),*/
+                                  /*  OutlineButton(
                                         child: Text("signup"),
                                         onPressed: (){
                                           Navigator.of(context).pushNamed('/signup');
-                                        }),
+                                        }),*/
+                                                /////////////////////////////////////////////////////////////
+                                                SimpleRoundButton(
+                                                    backgroundColor: Color.fromRGBO(191, 51, 48, 1),
+                                                    buttonText: Text("SIGNUP",
+                                                      style: TextStyle(
+                                                          color: Colors.white
+                                                      ),
+                                                    ),
+                                                    textColor: Colors.white,
+                                                    onPressed:(){
+
+                                                    }
+                                                ),
                                     //   OutlineButton(
                                     //       child: Text("ui"),
                                     //       onPressed: (){
@@ -200,9 +245,12 @@ print(body);
       ) ,
     );
   }
-  Widget _input(String validation,bool ,String label,String hint, save ){
+
+
+  Widget _input(String validation,bool ,String label,String hint, save ,TextEditingController controller){
 
     return new TextFormField(
+
       decoration: InputDecoration(
         hintText: hint,
         labelText: label,
@@ -216,6 +264,7 @@ print(body);
       validator: (value)=>
       value.isEmpty ? validation: null,
       onSaved: save ,
+      controller: controller ,
 
     );
 
@@ -226,7 +275,7 @@ print(body);
   initState() {
 
     super.initState();
-    _login();
+    //_login();
 
 
 
