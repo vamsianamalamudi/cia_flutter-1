@@ -4,14 +4,12 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import 'package:cia_flutter/ProjectList.dart';
-import 'componentList.dart';
 
 const PrimaryColor = const Color(0xFF151026);
 class HomeScreen extends StatefulWidget {
 
    String token;
    HomeScreen({this.token});
-
 
 
   @override
@@ -23,8 +21,8 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   String token;
-  //double _imageHeight = 256.0;
-  double _imageHeight = 100.0;
+  double _imageHeight = 256.0;
+  //double _imageHeight = 100.0;
 
   HomeScreenState(this.token);
 
@@ -49,29 +47,215 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
 
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
 
-/*      appBar: new AppBar(
+       /* bottomNavigationBar: BottomNavigationBar(
+
+            items: [
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.home),
+                  title: new Text('All Calls')),
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.add_box), title: new Text('Missed')),
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.alarm_add),
+                  title: new Text('Received')),
+            ]),*/
+
+   /*   appBar: new AppBar(
        // backgroundColor: PrimaryColor,
         title: new Text("Home"),
       ),*/
      // appBar: topAppBar,
-        body:new Stack(
+       /* body: new Column(
           children: <Widget>[
+            new Expanded(
+              child: new ListView.builder(
+                itemCount: receivedCallContacts.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(
+                      '${receivedCallContacts[index].fullName}',
+                    ),
+                    subtitle: Text('${receivedCallContacts[index].email}'),
+                    leading: new CircleAvatar(
+                        backgroundColor: Colors.blue,
+                        child:
+                        Text('${receivedCallContacts[index].fullName.substring(
+                            0, 1)}')),
 
-           _buildIamge2(),
-            _buildTopHeader(),
-            _buildProfileRow(),
-             _buildBottomPart(),
+                    trailing: Icon(Icons.arrow_forward),
+                    onTap: () => _onTapItem(context, receivedCallContacts[index]),
+                  );
 
-
+                },
+              ),
+            ),
           ],
-        ),
+        ),*/
+
+      body:
+      new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+
+          children: <Widget>[
+            new Container(
+                margin: EdgeInsets.all(20),
+                width: 100.0,
+                height: 100.0,
+                decoration: new BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: new DecorationImage(
+                        fit: BoxFit.fill,
+                        /*image: new NetworkImage(
+                            "https://i.imgur.com/BoN9kdC.png" )*/
+                        image: new AssetImage("assets/images/logo2.png" ),
+                    )
+                )),
+            /*new Image.network(
+              '',
+              fit: BoxFit.scaleDown,
+              scale: 2,
+            ),*/
+
+            new Text(
+              "Surya Murugan",
+              style: new TextStyle(fontSize:40.0,
+                  color:Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: "Roboto"),
+              textAlign: TextAlign.center,
+            ),
+            new Container(
+              margin: EdgeInsets.all(5),
+              child: new Row(
+                mainAxisAlignment:MainAxisAlignment.center,
+                children: <Widget>[
+                  new Text(
+                    "UID: 1AT16CS111    ",
+                    style: new TextStyle(fontSize:18.0,
+                        color:Colors.white,
+                        fontWeight: FontWeight.w200,
+                        fontFamily: "Roboto"),
+                    textAlign: TextAlign.center,
+                  ),
+                  new Icon(Icons.star_border),
+                  new Text(" 10000",style: new TextStyle(fontSize:18.0,
+                      color:Colors.white,
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                      textAlign: TextAlign.center)
+                ],
+
+              ),
+            ),
+
+
+            new Padding(padding: EdgeInsets.all(10),),
+
+
+            new Padding(padding: EdgeInsets.all(10),),
+
+            new Padding(padding: EdgeInsets.all(10),
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              //mainAxisSize: MainAxisSize.max,
+              //crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                new Icon(Icons.email,),
+                new Text("    surya@gmail.com",
+                  style: new TextStyle(fontSize:20.0,
+                      color:Colors.white,
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                  textAlign: TextAlign.center,)
+              ],
+            ),),
+
+
+            new Padding(padding: EdgeInsets.all(10),
+            child :  new Row(
+
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              //mainAxisSize: MainAxisSize.max,
+              //crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                new Icon(Icons.call,),
+                new Text("  9742721625",
+                  style: new TextStyle(fontSize:20.0,
+                      color:Colors.white,
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                  textAlign: TextAlign.center,)
+              ],
+            )),
+
+            new Padding(padding:EdgeInsets.fromLTRB(10, 40, 10, 20),
+                child :  new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Column(
+
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      //mainAxisSize: MainAxisSize.max,
+                      //crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        new Text("100",
+                          style: new TextStyle(fontSize:40.0,
+                              color:Colors.white,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: "Roboto"),
+                          textAlign: TextAlign.center,),
+                        new Text("Projects",
+                          style: new TextStyle(fontSize:18.0,
+                              color:Colors.white,
+                              fontWeight: FontWeight.w200,
+                              fontFamily: "Roboto"),
+                          textAlign: TextAlign.center,)
+                      ],
+                    ),
+              new VerticalDivider(width:70,),
+                    new Column(
+
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      //mainAxisSize: MainAxisSize.max,
+                      //crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        new Text("50",
+                          style: new TextStyle(fontSize:40.0,
+                              color:Colors.white,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: "Roboto"),
+                          textAlign: TextAlign.center,),
+                        new Text("Events",
+                          style: new TextStyle(fontSize:18.0,
+                              color:Colors.white,
+                              fontWeight: FontWeight.w200,
+                              fontFamily: "Roboto"))
+                      ],
+                    )
+
+                  ],
+                ))
+
+          ]
+
+      ),
       // Set the nav drawer
       drawer: getNavDrawer(context),
     );
+  }
+  void _onTapItem(BuildContext context, Contact post) {
+    Scaffold.of(context).showSnackBar(
+        new SnackBar(content: new Text("Tap on " + ' - ' + post.fullName)));
   }
 
   Widget _buildIamge() {
@@ -87,7 +271,7 @@ class HomeScreenState extends State<HomeScreen> {
     return new ClipPath(
       clipper: new DialogonalClipper(),
       child: new Image.asset(
-        'assets/images/vv.png',
+        'assets/images/av.jpg',
         fit: BoxFit.fitHeight,
         height: _imageHeight,
         colorBlendMode: BlendMode.srcOver,
@@ -126,52 +310,116 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
 
+  Widget _scores() {
+    return new Padding(
+        padding: new EdgeInsets.only(top: 100),
+      //padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 32.0),
+      child: new Card(
+        elevation: 2,
+
+        margin: EdgeInsets.fromLTRB(20,0,20,0),
+        child: new Container(
+
+          height: 70,
+          child: new Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+
+              new Column(
+
+                children: <Widget>[
+                  Text("Points",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 20)),
+                  new Padding(padding: EdgeInsets.all(5) ,
+                    child: Text("300",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 30),),),
+
+
+
+                ],
+              ),
+
+
+              new Column(
+
+                children: <Widget>[
+                  Text("Points",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 20)),
+                  new Padding(padding: EdgeInsets.all(5) ,
+                    child: Text("300",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 30),),),
+
+
+
+                ],
+              ),
+              /*VerticalDivider(indent: 10,color: Colors.black,)
+            ,
+            new Column(
+
+              children: <Widget>[
+                Text("Points",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 20)),
+                new Padding(padding: EdgeInsets.all(5) ,
+                  child: Text("300",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 30),),),
+
+
+
+              ],
+            )*/
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
+
+
   Widget _buildProfileRow() {
     return new Padding(
-      padding: new EdgeInsets.only(left: 16.0, top: _imageHeight / 2.5),
-      child: new Row(
-        children: <Widget>[
-          new CircleAvatar(
-            minRadius: 28.0,
-            maxRadius: 28.0,
-            backgroundImage: new AssetImage('assets/images/av.jpg'),
-          ),
-          new Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new Text(
-                  'Surya Murugan',
-                  style: new TextStyle(
-                      fontSize: 26.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400),
-                ),
-                new Text(
-                  'Agent Level : Noob',
-                  style: new TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w300),
-                ),
-              ],
+      padding: new EdgeInsets.only(left: 75.0, top: 50 / 2.5),
+    // padding: new EdgeInsets.all(10),
+      child:new Container(
+        child:  new Row(
+          children: <Widget>[
+            new CircleAvatar(
+              minRadius: 28.0,
+              maxRadius: 28.0,
+              backgroundImage: new AssetImage('assets/images/av.jpg'),
             ),
-          ),
-        ],
-      ),
+            new Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new Text(
+                    'Surya Murugan',
+                    style: new TextStyle(
+                        fontSize: 26.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  new Text(
+                    'Agent Level : Noob',
+                    style: new TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      )
     );
   }
 
   Widget _buildBottomPart() {
     return new Padding(
-      //padding: new EdgeInsets.only(top: _imageHeight),
-      padding: new EdgeInsets.all(1),
+      padding: new EdgeInsets.only(top: 175),
+    //  padding: new EdgeInsets.all(1),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _buildMyTasksHeader(),
+          //_buildMyTasksHeader(),
           _buildTasksList(),
         ],
       ),
@@ -182,10 +430,12 @@ class HomeScreenState extends State<HomeScreen> {
     Animation<double> animation;
 
     return   new Flexible(
+
       child: GridView.count(
 
 
           crossAxisCount: 2,
+
           padding: EdgeInsets.all(1.0),
 
           children: [
@@ -212,7 +462,7 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Column(
                           children: <Widget> [
                             new Container(
-                              margin: EdgeInsets.all(15),
+                              margin: EdgeInsets.all(10),
                               width: 100,
                               height: 100,
                               child : new Image.asset(
@@ -235,7 +485,7 @@ class HomeScreenState extends State<HomeScreen> {
                 print("pressed");
                 Navigator.push(
                     context, new MaterialPageRoute(
-                    builder: (context) => new ComponentList()));
+                    builder: (context) => new ProjectList()));
               },
               child:Card(
             color: Colors.white,
@@ -248,7 +498,7 @@ class HomeScreenState extends State<HomeScreen> {
 
             ),
             child: new Padding(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(10),
             child: Column(
             children: <Widget> [
             new Container(
@@ -269,12 +519,6 @@ class HomeScreenState extends State<HomeScreen> {
     ) ,
             ),
             GestureDetector(
-              onTap: (){
-                print("pressed");
-                Navigator.push(
-                    context, new MaterialPageRoute(
-                    builder: (context) => new ProjectList()));
-              },
               child: Card(
                   color: Colors.white,
                   borderOnForeground: true,
@@ -286,7 +530,7 @@ class HomeScreenState extends State<HomeScreen> {
 
                   ),
                   child: new Padding(
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.all(10),
                     child: Column(
                         children: <Widget> [
                           new Container(
@@ -307,12 +551,6 @@ class HomeScreenState extends State<HomeScreen> {
               ),
             ),
               GestureDetector(
-                onTap: (){
-                  print("pressed");
-                  Navigator.push(
-                      context, new MaterialPageRoute(
-                      builder: (context) => new ProjectList()));
-                },
                 child:    Card(
                     color: Colors.white,
                     borderOnForeground: true,
@@ -324,7 +562,7 @@ class HomeScreenState extends State<HomeScreen> {
 
                     ),
                     child: new Padding(
-                      padding: EdgeInsets.all(15),
+                      padding: EdgeInsets.all(10),
                       child: Column(
                           children: <Widget> [
                             new Container(
@@ -397,6 +635,20 @@ class DialogonalClipper extends CustomClipper<Path> {
 }
 
 
+
+
+List<Contact> receivedCallContacts = [
+  Contact(fullName: 'Pratap Kumar', email: 'pratap@example.com'),
+  Contact(fullName: 'Jagadeesh', email: 'Jagadeesh@example.com'),
+  Contact(fullName: 'Srinivas', email: 'Srinivas@example.com'),
+];
+
+class Contact {
+  final String fullName;
+  final String email;
+
+  const Contact({this.fullName, this.email});
+}
  /* @override
   initState() {
 

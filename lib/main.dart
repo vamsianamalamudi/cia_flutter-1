@@ -8,7 +8,7 @@ import 'package:cia_flutter/profile.dart';
 import 'addProject.dart';
 import 'addComponent.dart';
 import 'loginPage.dart';
-
+import 'MainScreen.dart';
 
 /*
 void main() => runApp(MaterialApp(
@@ -37,7 +37,7 @@ const PrimaryColor = const Color(0xFF151026);
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    theme:new ThemeData.light(),
+    theme:new ThemeData.dark(),
     //theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
     home: new SplashScreen(), // route for home is '/' implicitly
     routes: <String, WidgetBuilder>{
@@ -49,6 +49,8 @@ void main() {
       AddProject.routeName : (BuildContext context)=> new AddProject(),
       AddComponent.routeName : (BuildContext context)=> new AddComponent(),
       LoginPage.routeName : (BuildContext context)=> new LoginPage(),
+      MainScreen.routeName : (BuildContext context)=> new MainScreen(),
+
 
 
 

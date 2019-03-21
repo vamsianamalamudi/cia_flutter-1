@@ -52,6 +52,7 @@ class _ComponentAllListState extends State<ComponentAllList> {
           component["tutorialsLink"]);
       componentitemlist.add(element);
     }
+
     return componentitemlist;
   }
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -60,11 +61,11 @@ class _ComponentAllListState extends State<ComponentAllList> {
     // TODO: implement build
     return new Scaffold(
       drawer: getNavDrawer(context),
-      appBar: new AppBar(
+    /*  appBar: new AppBar(
         title: new Text("Component List"),
         backgroundColor: Colors.black,
 
-      ),
+      ),*/
       body: new Container(
         child: FutureBuilder(
           future: _getUsers(),

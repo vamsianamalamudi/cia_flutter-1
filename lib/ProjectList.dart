@@ -74,11 +74,11 @@ class _ProjectAllListState extends State<ProjectAllList> {
 
         drawer: getNavDrawer(context),
 
-      appBar: new AppBar(
+      /*appBar: new AppBar(
         title: new Text("Project List"),
         backgroundColor: Colors.black,
 
-      ),
+      ),*/
       body: new Container(child: FutureBuilder(
         future: _getUsers(),
         builder: (BuildContext context, AsyncSnapshot snapshot){
