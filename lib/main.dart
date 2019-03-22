@@ -7,6 +7,7 @@ import 'componentList.dart';
 import 'package:cia_flutter/profile.dart';
 import 'addProject.dart';
 import 'addComponent.dart';
+import 'chatScreen.dart';
 import 'loginPage.dart';
 import 'MainScreen.dart';
 
@@ -49,6 +50,7 @@ void main() {
       AddProject.routeName : (BuildContext context)=> new AddProject(),
       AddComponent.routeName : (BuildContext context)=> new AddComponent(),
       LoginPage.routeName : (BuildContext context)=> new LoginPage(),
+      ChatScreen.routeName : (BuildContext context)=> new ChatScreen(),
       MainScreen.routeName : (BuildContext context)=> new MainScreen(),
 
 
