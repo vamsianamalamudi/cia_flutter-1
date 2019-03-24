@@ -56,7 +56,8 @@ print(body);
       print(jsonData);
       Navigator.pushReplacement(
           context, new MaterialPageRoute(
-          builder: (context) => new HomeScreen(token: token,)));
+          /*builder: (context) => new HomeScreen(token: token,)*/
+      ));
 
       //return Login.fromJson(json.decode(response.body));
     } else {
