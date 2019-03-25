@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'SplashScreen.dart';
 import 'package:cia_flutter/ProjectList.dart';
 import 'componentList.dart';
+import 'chatScreen.dart';
 import 'profile.dart';
 import 'addProject.dart';
 import 'addComponent.dart';
@@ -36,7 +37,7 @@ Drawer getNavDrawer(BuildContext context) {
     getNavItem(Icons.work, "Projects", ProjectList.routeName),
     getNavItem(Icons.satellite, "Components", ComponentList.routeName),
     getNavItem(Icons.account_circle, "Profile", ProfilePage.routeName),
-    getNavItem(Icons.forum, "Forum", ComponentList.routeName),
+    getNavItem(Icons.forum, "Forum", ChatScreen.routeName),
     Divider(),
     getNavItem(Icons.add_to_queue, "+ Projects", AddProject.routeName),
     getNavItem(Icons.add_box, "+ Components", AddComponent.routeName),
