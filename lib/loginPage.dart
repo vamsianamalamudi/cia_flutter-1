@@ -103,7 +103,7 @@ print(body);
             decoration: BoxDecoration(
               image: DecorationImage(
 
-                  image: AssetImage('assets/images/logo2.png'),
+                  image: AssetImage('assets/images/avengers.png'),
                   fit: BoxFit.fitHeight),
               borderRadius: BorderRadius.only
                 (
