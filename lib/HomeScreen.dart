@@ -15,25 +15,59 @@ class HomeScreen extends StatelessWidget {
       body: new Container(
         color: Colors.black26,
         child: new Column(
+          //crossAxisAlignment: CrossAxisAlignment.baseline,
           mainAxisAlignment: MainAxisAlignment.end,
+
           children: <Widget>[
             new Hero(
                 tag: 'image-hero',
                 child: new Container(
-                  margin: const EdgeInsets.only(bottom: 20.0),
-                  child: new Image.asset('assets/images/logocia.png',
-                      width: 200.0, height: 200.0, color: Colors.white),
+                 // margin: const EdgeInsets.only(bottom: 20.0),
+                  child: new Image.asset('assets/images/avengers.png',
+                      width: 100.0, height: 100.0),
                 )),
+            new Text(
+              "Surya Murugan",
+              style: new TextStyle(fontSize:40.0,
+                  color:Colors.white,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: "Roboto"),
+              textAlign: TextAlign.center,
+            ),
             new Container(
+              margin: EdgeInsets.all(5),
+              child: new Row(
+                mainAxisAlignment:MainAxisAlignment.center,
+                children: <Widget>[
+                  new Text(
+                    "UID: 1AT16CS111    ",
+                    style: new TextStyle(fontSize:18.0,
+                        color:Colors.white,
+                        fontWeight: FontWeight.w200,
+                        fontFamily: "Roboto"),
+                    textAlign: TextAlign.center,
+                  ),
+                  new Icon(Icons.star_border),
+                  new Text(" 10000",style: new TextStyle(fontSize:18.0,
+                      color:Colors.white,
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                      textAlign: TextAlign.center)
+                ],
+
+              ),
+            ),
+    /*
+         new Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               child: new Text('Communities. In. Atria.',
                   style: const TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w200)),
-            ),
+            ),*/
             new Container(
-              height: 450.0,
+              //height:.0,
               width: double.infinity,
               decoration: new BoxDecoration(
                 borderRadius: new BorderRadius.only(topLeft: const Radius.circular(30.0), topRight: const Radius.circular(30.0)),

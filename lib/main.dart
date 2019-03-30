@@ -37,30 +37,27 @@ const PrimaryColor = const Color(0xFF151026);
 
 void main() {
   runApp(new MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme:new ThemeData.dark(),
-    //theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
-    home: new SplashScreen(), // route for home is '/' implicitly
-    routes: <String, WidgetBuilder>{
-      ProjectList.routeName : (BuildContext context) => new ProjectList(),
-      SplashScreen.routeName : (BuildContext context)=> new SplashScreen(),
-      '/home' : (BuildContext context)=> new HomeScreen(),
-      ComponentList.routeName : (BuildContext context)=> new ComponentList(),
-      ProfilePage.routeName : (BuildContext context)=> new ProfilePage(),
-      AddProject.routeName : (BuildContext context)=> new AddProject(),
-      AddComponent.routeName : (BuildContext context)=> new AddComponent(),
-      LoginPage.routeName : (BuildContext context)=> new LoginPage(),
-      ChatScreen.routeName : (BuildContext context)=> new ChatScreen(),
-      MainScreen.routeName : (BuildContext context)=> new MainScreen(),
-
-
-
-
-
-
-      // define the routes
-      //SettingsScreen.routeName: (BuildContext context) => new SettingsScreen(),
-      //AccountScreen.routeName: (BuildContext context) => new AccountScreen(),
-    },
-  ));
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData.dark(),
+      //theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
+      home: new SplashScreen(), // route for home is '/' implicitly
+      routes: <String, WidgetBuilder>{
+        ProjectList.routeName: (BuildContext context) => new ProjectList(),
+        SplashScreen.routeName: (BuildContext context) => new SplashScreen(),
+        '/home': (BuildContext context) => new HomeScreen(),
+        ComponentList.routeName: (BuildContext context) => new ComponentList(),
+        ProfilePage.routeName: (BuildContext context) => new ProfilePage(),
+        AddProject.routeName: (BuildContext context) => new AddProject(),
+        AddComponent.routeName: (BuildContext context) => new AddComponent(),
+        LoginPage.routeName: (BuildContext context) => new LoginPage(),
+        ChatScreen.routeName: (BuildContext context) => new ChatScreen(),
+        MainScreen.routeName: (BuildContext context) => new MainScreen()
+      }));
 }
+// define the routes
+//SettingsScreen.routeName: (BuildContext context) => new SettingsScreen(),
+//AccountScreen.routeName: (This .../flutter/bin/cache/dart-sdk/bin is the location of your Dart SDK. Assuming you say the same Dart SDK is not configured error accompanied by something where you can configure your Dart SDK. You click the configure option and set .../flutter/bin/cache/dart-sdk/bin as your SDK. That should fix your problem. If not head over to the next step.
+/*BuildContext context) => new AccountScreen()
+},
+));*/
+//}
