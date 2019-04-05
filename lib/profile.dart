@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'dart:io';
 import 'drawer.dart';
+import 'EditProfile.dart';
 
 class ProfilePage extends StatefulWidget {
   static const String routeName = "/profile";
@@ -39,7 +40,19 @@ class MapScreenState extends State<ProfilePage>
           // backgroundColor: PrimaryColor,
           title: new Text("Profile"),
         ),*/
-      drawer: getNavDrawer(context) ,
+        drawer: getNavDrawer(context),
+        floatingActionButton: new FloatingActionButton(
+          onPressed:() {
+            Navigator.push(
+                context, new MaterialPageRoute(
+                builder: (context) => new EditProfile()));
+          },
+          backgroundColor: Colors.white,
+          //if you set mini to true then it will make your floating button small
+          mini: false,
+          child: new Icon(Icons.edit),
+        ),
+/*      drawer: getNavDrawer(context) ,*/
         body: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
@@ -55,7 +68,7 @@ class MapScreenState extends State<ProfilePage>
                         fit: BoxFit.fill,
                         /*image: new NetworkImage(
                             "https://i.imgur.com/BoN9kdC.png" )*/
-                        image: new AssetImage("assets/images/logo2.png" ),
+                        image: new AssetImage("assets/images/avengers.png" ),
                       )
                   )),
               /*new Image.network(

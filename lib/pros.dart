@@ -10,8 +10,8 @@ class Pros {
 }
 
 List<Pros> books = [
-  Pros('assets/images/book1.gif', 'The Fault In Our Stars', 'by John Green and Rodrigo Corral'),
-  Pros('assets/images/book2.gif', 'Mr Mercedes', 'by Stephen King'),
-  Pros('assets/images/book3.gif', 'Panic', 'by Lauren Oliver'),
+  Pros('assets/images/talks.jpeg', 'talk on batterys', 'by Sumith and sujith',),
+  Pros('assets/images/talks.jpeg','talk on batterys', 'by Sumith and sujith'),
+  Pros('assets/images/talks.jpeg', 'talk on batterys', 'by Sumith and sujith'),
   //Book('assets/images/book4.gif', 'The 5th Wave', 'Rick Yancey')
 ];

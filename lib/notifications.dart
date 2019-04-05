@@ -6,21 +6,21 @@ import 'drawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
-class ComponentList extends StatelessWidget {
-  static const String routeName = "/componentlist";
+class NotificationList extends StatelessWidget {
+  static const String routeName = "/notificationlist";
 
   @override
   Widget build(BuildContext context) {
-    return new ComponentAllList();
+    return new NotificationAllList();
 
 
   }}
 
-class ComponentAllList extends StatefulWidget{
+class NotificationAllList extends StatefulWidget{
   @override
-  _ComponentAllListState createState() => new _ComponentAllListState();
+  _NotificationListState createState() => new _NotificationListState();
 }
-class _ComponentAllListState extends State<ComponentAllList> {
+class _NotificationListState extends State<NotificationAllList> {
 ////////////////////////////////////////////////////////////////////////////////////////
   ///
   Future<List<ComponentItem>>  _getUsers() async {
@@ -61,7 +61,7 @@ class _ComponentAllListState extends State<ComponentAllList> {
     // TODO: implement build
     return new Scaffold(
       drawer: getNavDrawer(context),
-    /*  appBar: new AppBar(
+      /*  appBar: new AppBar(
         title: new Text("Component List"),
         backgroundColor: Colors.black,
 
@@ -74,7 +74,7 @@ class _ComponentAllListState extends State<ComponentAllList> {
             if(snapshot.data == null ){
 
               return Container(
-                
+
                 child: Center(
                   //child: Text("Loading... :)"),
                   child: ColorLoader2(
@@ -105,29 +105,29 @@ class _ComponentAllListState extends State<ComponentAllList> {
                   return Card(
                     margin: const EdgeInsets.only(left: 18.0, right: 18.0,bottom: 10.0,top: 20.0),
                     child: InkWell(
-                        splashColor: Colors.blue.withAlpha(30),
+                      splashColor: Colors.blue.withAlpha(30),
 
-                        onTap: () { Navigator.push(
-                            context, new MaterialPageRoute(
-                            builder: (context) => new CompDetails(
-                              componentItem: snapshot.data[index],))); },
-                        child: new Container(
-                          margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-                          child: new
-                          ListTile(
-                            title: Text(snapshot.data[index].itemName.toString().toUpperCase()),
-                            leading: new CircleAvatar(
-                              backgroundColor: Colors.black,
-                              child: new Icon(
-                                  Icons.computer
-                              ),
+                      onTap: () { Navigator.push(
+                          context, new MaterialPageRoute(
+                          builder: (context) => new CompDetails(
+                            componentItem: snapshot.data[index],))); },
+                      child: new Container(
+                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        child: new
+                        ListTile(
+                          title: Text(snapshot.data[index].itemName.toString().toUpperCase()),
+                          leading: new CircleAvatar(
+                            backgroundColor: Colors.black,
+                            child: new Icon(
+                                Icons.computer
                             ),
-                            trailing: Text("X  "+snapshot.data[index].quantity.toString().toUpperCase()),
-
-
-
                           ),
+                          trailing: Text("X  "+snapshot.data[index].quantity.toString().toUpperCase()),
+
+
+
                         ),
+                      ),
                     ),
                   );
                 },
