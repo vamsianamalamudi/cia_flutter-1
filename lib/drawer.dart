@@ -6,11 +6,17 @@ import 'chatScreen.dart';
 import 'profile.dart';
 import 'addProject.dart';
 import 'addComponent.dart';
+import 'claim_points.dart';
+import 'notifications.dart';
+import 'package:cia_flutter/ProjectList2.dart';
+
 Drawer getNavDrawer(BuildContext context) {
-  var headerChild = new DrawerHeader(child: new Text("Header"));
+  var headerChild = new DrawerHeader(child: new Image.asset("assets/images/avengers.png"));
+
+
   var aboutChild = new AboutListTile(
       child: new Text("About"),
-      applicationName: "Application Name",
+      applicationName: "CIA",
       applicationVersion: "v1.0.0",
       applicationIcon: new Icon(Icons.adb),
       icon: new Icon(Icons.info));
@@ -36,14 +42,15 @@ Drawer getNavDrawer(BuildContext context) {
     getNavItem(Icons.home, "Home", "/home"),
     getNavItem(Icons.work, "Projects", ProjectList.routeName),
     getNavItem(Icons.satellite, "Components", ComponentList.routeName),
+    getNavItem(Icons.satellite, "Notifications", NotificationList.routeName),
     getNavItem(Icons.account_circle, "Profile", ProfilePage.routeName),
     getNavItem(Icons.forum, "Forum", ChatScreen.routeName),
+    getNavItem(Icons.control_point_duplicate, "Claim Points",ClaimPoints.routeName),
+
+
     Divider(),
     getNavItem(Icons.add_to_queue, "+ Projects", AddProject.routeName),
     getNavItem(Icons.add_box, "+ Components", AddComponent.routeName),
-
-
-
 
     aboutChild
   ];

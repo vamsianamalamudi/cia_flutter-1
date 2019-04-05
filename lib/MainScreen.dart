@@ -49,8 +49,8 @@ class _MainScreen extends State<MainScreen>
                   icon: new Icon(Icons.add_box),
                   title: new Text('Projects')),
               BottomNavigationBarItem(
-                  icon: new Icon(Icons.space_bar),
-                  title: new Text('Components')),
+                  icon: new Icon(Icons.notifications),
+                  title: new Text('Notifications')),
               BottomNavigationBarItem(
                   icon: new Icon(Icons.account_circle),
                   title: new Text('Profile')),

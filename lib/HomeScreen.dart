@@ -6,12 +6,19 @@ import 'dart:convert';
 import 'package:cia_flutter/ProjectList.dart';
 import 'ciapros.dart';
 
+
 const PrimaryColor = const Color(0xFF151026);
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      drawer: getNavDrawer(context),
+     /* appBar: new AppBar(
+        title: new Text(" "),
+        backgroundColor: Colors.transparent,
+
+      ),*/
       body: new Container(
         color: Colors.black26,
         child: new Column(
@@ -74,18 +81,20 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               child: new DefaultTabController(
-                length: 3,
+                length: 5,
                 child: new Column(
                   children: <Widget>[
                     new TabBar(
                       indicatorWeight: 3.0,
                       isScrollable: true,
                       labelColor: Colors.black87,
+
                       tabs: <Widget>[
-                        new Tab(text: 'TALKS'),
-                        new Tab(text: 'SEMINARS'),
-                        new Tab(text: 'WORKSHOPS'),
+                        new Tab(text: 'TALKS',),
+                      //  new Tab(text: 'SEMINARS'),
+                        // new Tab(text: 'WORKSHOPS'),
                       ],
+
                     ),
                     new CiaPros(),
 
@@ -96,6 +105,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+
     );
   }
 }

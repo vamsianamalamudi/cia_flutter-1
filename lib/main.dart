@@ -10,6 +10,9 @@ import 'addComponent.dart';
 import 'chatScreen.dart';
 import 'loginPage.dart';
 import 'MainScreen.dart';
+import 'notifications.dart';
+import 'claim_points.dart';
+import 'package:cia_flutter/ProjectList2.dart';
 
 /*
 void main() => runApp(MaterialApp(
@@ -43,15 +46,21 @@ void main() {
       home: new SplashScreen(), // route for home is '/' implicitly
       routes: <String, WidgetBuilder>{
         ProjectList.routeName: (BuildContext context) => new ProjectList(),
+        ProjectList2.routeName: (BuildContext context) => new ProjectList2(),
         SplashScreen.routeName: (BuildContext context) => new SplashScreen(),
         '/home': (BuildContext context) => new HomeScreen(),
+        ClaimPoints.routeName: (BuildContext context) => new ClaimPoints(),
         ComponentList.routeName: (BuildContext context) => new ComponentList(),
-        ProfilePage.routeName: (BuildContext context) => new ProfilePage(),
+            NotificationList.routeName: (BuildContext context) => new NotificationList(),
+
+            ProfilePage.routeName: (BuildContext context) => new ProfilePage(),
         AddProject.routeName: (BuildContext context) => new AddProject(),
         AddComponent.routeName: (BuildContext context) => new AddComponent(),
         LoginPage.routeName: (BuildContext context) => new LoginPage(),
         ChatScreen.routeName: (BuildContext context) => new ChatScreen(),
-        MainScreen.routeName: (BuildContext context) => new MainScreen()
+        MainScreen.routeName: (BuildContext context) => new MainScreen(),
+        //ClaimPoints.routeName: (BuildContext context) => new ClaimPoints(),
+
       }));
 }
 // define the routes

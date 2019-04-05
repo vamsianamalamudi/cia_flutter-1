@@ -42,28 +42,37 @@ class CiaPros extends StatelessWidget {
                       padding: const EdgeInsets.only(
                           left: 20.0, bottom: 10.0, top: 10.0),
                       child: new Text(pros.title,
-                          style: const TextStyle(fontSize: 25.0),
+                          style: const TextStyle(fontSize: 20.0,color: Colors.black),
                           textAlign: TextAlign.right),
                     ),
                     new Padding(
                       padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
-                      child: new Text(pros.author),
+                      child: new Text(pros.author,style: const TextStyle(fontSize: 15.0,color: Colors.black54),
+                        textAlign: TextAlign.right),
                     ),
                     new Container(
-                      margin: const EdgeInsets.only(left: 20.0),
+                      margin: const EdgeInsets.all(10.0),
                       decoration: new BoxDecoration(
-                          borderRadius: new BorderRadius.circular(20.0)),
+                          borderRadius: new BorderRadius.circular(40.0)),
                       child: new ClipRRect(
-                        borderRadius: new BorderRadius.circular(50.0),
+                        borderRadius: new BorderRadius.circular(20.0),
                         child: new MaterialButton(
                           minWidth: 70.0,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context, new MaterialPageRoute(
+                                builder: (context) => new CiaProjectsList()));
+
+                          },
                           color: Colors.black,
-                          child: new Text('Read Book',
+                          child: new Center(
+                            child: new Text('Read More',
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 17.0,
-                                  fontWeight: FontWeight.w500)),
+                                  fontWeight: FontWeight.w500)
+                              ,),
+                          ),
                         ),
                       ),
                     ),
@@ -73,5 +82,65 @@ class CiaPros extends StatelessWidget {
             );
           }).toList()),
     );
+  }
+}
+
+
+class CiaProjectsList extends StatelessWidget {
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return
+      // title: componentItem.getItemName(),
+
+      new Scaffold(
+        appBar: new AppBar(
+          title: new Text("DESCRIPTION"),
+          backgroundColor: Colors.black,
+
+        ),
+        body: new Container(
+
+
+          child: new ListView(
+            children: <Widget>[
+
+              /*new  Image.network(componentItem.getimage(),
+                  width: 150.0,
+                  height: 150.0,),*/
+              new Image.asset("assets/images/forum.png",width: 200.0,height: 200.0,),
+              new Divider(
+                height: 1.0,
+                color: Colors.red,
+              ),
+              new Text("some randome text"
+                  "snnnsk"
+                  "endkjandjn"
+                  "amkdnmkdm"
+                  "sssssssssssssssssssssssss"
+                  "e"
+                  ""
+                  ""
+                  ""
+                  "e"
+                  "w"
+                  ""
+                  "w"
+                  "s"),
+             
+
+              new Divider(
+                height: 1.0,
+                color: Colors.red,
+              ),
+             
+
+
+            ],
+          ),
+        ),
+      );
+
   }
 }

@@ -14,72 +14,113 @@ class ProjDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      drawer: getNavDrawer(context),
-          appBar: new AppBar(
-            title: new Text("More Details"),
-            backgroundColor: Colors.black,
+     // drawer: getNavDrawer(context),
+      appBar: new AppBar(
+        title: new Text("More Details"),
+        backgroundColor: Colors.black,
 
-          ),
+      ),
           body: new Container(
 
             child: new ListView(
               children: <Widget>[
-                new CircleAvatar(
+               /* new CircleAvatar(
                   radius: 100.0,
                   backgroundImage: new NetworkImage(projectItem.getimage()),
-                ),
+                ),*/
 
                 new ListTile(
-                  title: Text("ITEM ID:     "+projectItem.getpid().toString()),
+                  title: Text("PROJECT ID:     "+projectItem.getpid().toString()),
 
+                ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
                 ),
 
 
                 new ListTile(
-                  title: Text("ITEM NAME:    "+projectItem.getprojectName().toString()),
+                  title: Text("PROJECT NAME:    "+projectItem.getprojectName().toString()),
 
                 ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
+                ),
                 new ListTile(
-                  title: Text("ITEM QUANTITY:     "+projectItem.getuid().toString()),
+                  title: Text("PROJECT HEAD:     "+projectItem.getuid().toString()),
 
+                ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
                 ),
                 // new ListTile(
                 //   title: Text(componentItem.geturll().toString()),
                 // ),
                 new ListTile(
-                  title: Text("ITEM SPECIFICATION:      "+projectItem.getiid().toString()),
+                  title: Text("IDK:      "+projectItem.getiid().toString()),
 
+                ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
                 ),
 
 
                 new ListTile(
-                  title: Text("COST:      "+projectItem.getsd().toString()),
+                  title: Text("START DATE:      "+projectItem.getsd().toString()),
 
                 ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
+                ),
                 new ListTile(
-                  title: Text("MANUFACTURER:      "+projectItem.geted().toString()),
+                  title: Text("END DATE:      "+projectItem.geted().toString()),
 
+                ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
                 ),
                 new ListTile(
                   title: Text("DESCRIPTION:     "+projectItem.getdescription().toString()),
 
                 ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
+                ),
                 new ListTile(
                   title: Text("MODEL-ID:    "+projectItem.getcost().toString()),
 
                 ),
-                new ListTile(
-                  title: Text("DSL:   "+projectItem.getbudget().toString()),
-
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
                 ),
                 new ListTile(
-                  title: Text("LOCATION CABINET:    "+projectItem.geturll().toString()),
+                  title: Text("BUDGET:   "+projectItem.getbudget().toString()),
 
+                ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
                 ),
                 new ListTile(
-                  title: Text("LOCATION CUPBOARD:  "+projectItem.getsta().toString()),
+                  title: Text("URL:    "+projectItem.geturll().toString()),
 
                 ),
+                new Divider(
+                  height: 1.0,
+                  color: Colors.red,
+                ),
+                new ListTile(
+                  title: Text("STATUS:  "+projectItem.getsta().toString()),
+
+                ),
+               
 
 
               ],

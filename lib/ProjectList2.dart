@@ -9,23 +9,23 @@ import 'ColorLoader2.dart';
 import 'package:cia_flutter/model/projectItem.dart';
 
 
-class ProjectList extends StatelessWidget {
-  static const String routeName = "/project";
+class ProjectList2 extends StatelessWidget {
+  static const String routeName = "/project2";
 
   @override
   Widget build(BuildContext context) {
-    return  new ProjectAllList();
+    return  new ProjectAllList2();
 
   }}
-class ProjectAllList extends StatefulWidget{
+class ProjectAllList2 extends StatefulWidget{
 
   @override
-  _ProjectAllListState createState() => new _ProjectAllListState();
+  _ProjectAllListState2 createState() => new _ProjectAllListState2();
 
 
 }
 
-class _ProjectAllListState extends State<ProjectAllList> {
+class _ProjectAllListState2 extends State<ProjectAllList2> {
 //////////////////////////////////////////////////////////////////
 
   Future<List<ProjectItem>>  _getUsers() async {
@@ -54,10 +54,10 @@ class _ProjectAllListState extends State<ProjectAllList> {
 
     }
     ProjectItem projectItem = new ProjectItem(1
-                                    ,'GRID COMPUTING', '2', 'Something on grid',
-                                  '3', 'image', 'www.google.com',
-                                    '10-1-1111', '10-1-1111',
-                                      '1', 1221, 1212);
+        ,'GRID COMPUTING', '2', 'Something on grid',
+        '3', 'image', 'www.google.com',
+        '10-1-1111', '10-1-1111',
+        '1', 1221, 1212);
     projectitemlist.add(projectItem);
 
 
@@ -72,7 +72,7 @@ class _ProjectAllListState extends State<ProjectAllList> {
     // TODO: implement build
     return new Scaffold(
 
-        drawer: getNavDrawer(context),
+      drawer: getNavDrawer(context),
 
       /*appBar: new AppBar(
         title: new Text("Project List"),
@@ -87,14 +87,14 @@ class _ProjectAllListState extends State<ProjectAllList> {
 
             return Container(
 
-              child: Center(
-               // child: Text("Loading... :)"),
-                child: ColorLoader2(
-                color1: Colors.red,
-                color2: Colors.deepPurple,
-                color3: Colors.green,
-                    ),
-            ));
+                child: Center(
+                  // child: Text("Loading... :)"),
+                  child: ColorLoader2(
+                    color1: Colors.red,
+                    color2: Colors.deepPurple,
+                    color3: Colors.green,
+                  ),
+                ));
 
 
           }
@@ -114,7 +114,7 @@ class _ProjectAllListState extends State<ProjectAllList> {
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index){
                 return Card(
-                  margin: const EdgeInsets.only(left: 18.0, right: 18.0,bottom: 10.0,top: 20.0),
+                  margin: const EdgeInsets.only(left: 18.0, right: 18.0,bottom: 10.0),
                   child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
 
@@ -122,23 +122,20 @@ class _ProjectAllListState extends State<ProjectAllList> {
                           context, new MaterialPageRoute(
                           builder: (context) => new ProjDetails(
                             projectItem: snapshot.data[index],))); },
-                      child: new Container(
-                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-                        child: new
-                        ListTile(
-                          title: Text(snapshot.data[index].project_name.toString().toUpperCase()),
-                          leading: new CircleAvatar(
-                            backgroundColor: Colors.black,
-                            child: new Icon(
-                                Icons.computer
-                            ),
+                      child: new
+                      ListTile(
+                        title: Text(snapshot.data[index].project_name.toString().toUpperCase()),
+                        leading: new CircleAvatar(
+                          backgroundColor: Colors.black,
+                          child: new Icon(
+                              Icons.computer
                           ),
-                          trailing: Text("Status: "+snapshot.data[index].status.toString().toUpperCase()),
-
-
-
                         ),
-                      ),
+                        trailing: Text("Status: "+snapshot.data[index].status.toString().toUpperCase()),
+
+
+
+                      )
                   ),
                 );
               },
