@@ -4,8 +4,9 @@ import 'drawer.dart';
 class EditProfile extends StatelessWidget {
   static const String routeName = "/editprofile";
 
+ // EditProfile({this.name,this.uid,this.mail_id,this.phone_no});
+  String uid,name,mail_id,phone_no;
 
-  String uid,name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +67,7 @@ class EditProfile extends StatelessWidget {
                         new Flexible(
                           child: new TextField(
                             decoration: const InputDecoration(
-                              //hintText: "FROM DATABASE" ,
+                              hintText: "from database" ,
                             ),
 
 
@@ -105,7 +106,7 @@ class EditProfile extends StatelessWidget {
                         new Flexible(
                           child: new TextField(
                             decoration: const InputDecoration(
-                              //hintText: "FROM DATABASE"),
+                            hintText: "FROM DATABASE"
 
                             ),
                           ),
@@ -136,23 +137,6 @@ class EditProfile extends StatelessWidget {
                         ),
                       ],
                     )),
-                Padding(
-                    padding: EdgeInsets.only(
-                        left: 25.0, right: 25.0, top: 2.0),
-                    child: new Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        new Flexible(
-                          child: new TextField(
-                            decoration: const InputDecoration(
-                              // hintText: "FROM DATABASE"),
-
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
-
 
 
 
@@ -166,7 +150,7 @@ class EditProfile extends StatelessWidget {
                         new Flexible(
                           child: new TextField(
                             decoration: const InputDecoration(
-                              // hintText: "FROM DATABASE"),
+                               hintText: "FROM DATABASE"
 
                             ),
                           ),
@@ -177,7 +161,9 @@ class EditProfile extends StatelessWidget {
 
 
                     child: new RaisedButton(
-
+                      elevation: 2.0,
+                      padding: EdgeInsets.only(
+                          left: 25.0, right: 25.0, bottom: 2.0),
                       child: new ListTile(
                         leading: Icon(Icons.update,color: Colors.white,),
                         title: Text(" UPDATE",style: TextStyle(color: Colors.white),),
@@ -196,7 +182,8 @@ class EditProfile extends StatelessWidget {
               ],
 
             ),
-          )
+          ),
+
       ),);
   }
 }

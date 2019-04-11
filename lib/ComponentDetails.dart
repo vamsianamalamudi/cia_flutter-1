@@ -31,6 +31,10 @@ class CompDetails extends StatelessWidget {
                   width: 150.0,
                   height: 150.0,),
 */
+                new  Image.network("https://picsum.photos/250?image=9",
+                  width: 150.0,
+                  height: 150.0,),
+
 
                 new ListTile(
                   title: Text("ITEM ID:     "+componentItem.getItemId().toString(),

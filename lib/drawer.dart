@@ -42,10 +42,12 @@ Drawer getNavDrawer(BuildContext context) {
     getNavItem(Icons.home, "Home", "/home"),
     getNavItem(Icons.work, "Projects", ProjectList.routeName),
     getNavItem(Icons.satellite, "Components", ComponentList.routeName),
-    getNavItem(Icons.satellite, "Notifications", NotificationList.routeName),
+    getNavItem(Icons.satellite, "Leaderboard", NotificationList.routeName),
     getNavItem(Icons.account_circle, "Profile", ProfilePage.routeName),
     getNavItem(Icons.forum, "Forum", ChatScreen.routeName),
     getNavItem(Icons.control_point_duplicate, "Claim Points",ClaimPoints.routeName),
+    getNavItem(Icons.satellite, "Notifications", NotificationList.routeName),
+    getNavItem(Icons.satellite, "Schedule", NotificationList.routeName),
 
 
     Divider(),

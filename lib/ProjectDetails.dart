@@ -24,11 +24,14 @@ class ProjDetails extends StatelessWidget {
 
             child: new ListView(
               children: <Widget>[
-               /* new CircleAvatar(
-                  radius: 100.0,
+                new CircleAvatar(
+                  radius: 200.0,
                   backgroundImage: new NetworkImage(projectItem.getimage()),
+                ),
+               /* new CircleAvatar(
+                  radius: 200.0,
+                  backgroundImage: new NetworkImage("https://picsum.photos/250?image=9"),
                 ),*/
-
                 new ListTile(
                   title: Text("PROJECT ID:     "+projectItem.getpid().toString()),
 
