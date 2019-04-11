@@ -12,7 +12,7 @@ import 'package:cia_flutter/model/projectItem.dart';
 
 
 class LeadersList extends StatelessWidget {
-  static const String routeName = "/project";
+  static const String routeName = "/leaders";
 
   @override
   Widget build(BuildContext context) {
@@ -51,23 +51,35 @@ class _LeadersAllListState extends State<LeadersAllList> {
           project["end_date"],
           project["status"],
           project["budget"],
-          project["cost"]);
+          project["cost"]
+      );
       projectitemlist.add(element);
 
     }
     ProjectItem projectItem = new ProjectItem(1
-        ,'GRID COMPUTING', '2', 'Something on grid',
+        ,'Vamsi', '2', 'Something on grid',
         '3', 'image', 'www.google.com',
         '10-1-1111', '10-1-1111',
-        '1', 1221, 1212);
+        '2000', 1221, 1212);
+    new ProjectItem(1
+    ,'Surya', '2', 'Something on grid',
+    '3', 'image', 'www.google.com',
+    '10-1-1111', '10-1-1111',
+    '2000', 1221, 1212);
+
     projectitemlist.add(projectItem);
 
 
+
     return projectitemlist;
-//////////////////////////////////////////////
+///////////////jkbhbuibihb///////////////////////////////
 
 
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +112,8 @@ class _LeadersAllListState extends State<LeadersAllList> {
 
 
           }
-          else{/*
+          else{
+            /*
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index){
@@ -135,7 +148,7 @@ class _LeadersAllListState extends State<LeadersAllList> {
                               Icons.computer
                           ),
                         ),
-                        trailing: Text("Status: "+snapshot.data[index].status.toString().toUpperCase()),
+                        trailing: Text("Points: "+snapshot.data[index].status.toString().toUpperCase()),
 
 
 

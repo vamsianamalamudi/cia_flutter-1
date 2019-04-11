@@ -8,6 +8,7 @@ import 'addProject.dart';
 import 'addComponent.dart';
 import 'claim_points.dart';
 import 'notifications.dart';
+import 'leaderboard.dart';
 import 'package:cia_flutter/ProjectList2.dart';
 
 Drawer getNavDrawer(BuildContext context) {
@@ -42,7 +43,7 @@ Drawer getNavDrawer(BuildContext context) {
     getNavItem(Icons.home, "Home", "/home"),
     getNavItem(Icons.work, "Projects", ProjectList.routeName),
     getNavItem(Icons.satellite, "Components", ComponentList.routeName),
-    getNavItem(Icons.satellite, "Leaderboard", NotificationList.routeName),
+    getNavItem(Icons.satellite, "Leaderboard", LeadersList.routeName),
     getNavItem(Icons.account_circle, "Profile", ProfilePage.routeName),
     getNavItem(Icons.forum, "Forum", ChatScreen.routeName),
     getNavItem(Icons.control_point_duplicate, "Claim Points",ClaimPoints.routeName),

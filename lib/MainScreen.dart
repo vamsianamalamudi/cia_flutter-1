@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'HomeScreen.dart';
 import 'ProjectList.dart';
 import 'profile.dart';
+import 'leaderboard.dart';
 import 'componentList.dart';
 class MainScreen extends StatefulWidget {
 
@@ -24,7 +25,7 @@ class _MainScreen extends State<MainScreen>
   final List<Widget> _children = [
     new HomeScreen(),
     new ProjectList(),
-    new ComponentList(),
+    new LeadersList(),
     new ProfilePage()
   ];
 
