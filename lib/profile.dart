@@ -3,11 +3,15 @@ import 'package:flutter/cupertino.dart';
 //import 'package:image_picker/image_picker.dart';
 
 import 'dart:io';
+import 'model/points.dart';
 import 'drawer.dart';
 import 'EditProfile.dart';
 
 class ProfilePage extends StatefulWidget {
   static const String routeName = "/profile";
+  final PointItem pointItem;
+
+  ProfilePage({this.pointItem});
   @override
   MapScreenState createState() => MapScreenState();
 }
@@ -16,7 +20,13 @@ class MapScreenState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   bool _status = true;
   final FocusNode myFocusNode = FocusNode();
+  final PointItem pointItem1;
 
+  MapScreenState({this.pointItem1});
+  String usn ='1AT16CS119';
+  String name=' Vamsi';
+  String mail_id='vamsi0104@gmail.com';
+  String phone_no='8073672615';
   File _image;
 
   Future getImage() async {
@@ -45,7 +55,7 @@ class MapScreenState extends State<ProfilePage>
           onPressed:() {
             Navigator.push(
                 context, new MaterialPageRoute(
-                builder: (context) => new EditProfile()));
+                builder: (context) => new EditProfile(/*name,usn,mail_id,phone_no*/)));
           },
           backgroundColor: Colors.white,
           //if you set mini to true then it will make your floating button small
@@ -78,7 +88,7 @@ class MapScreenState extends State<ProfilePage>
             ),*/
 
               new Text(
-                "Surya Murugan",
+                name,
                 style: new TextStyle(fontSize:40.0,
                     color:Colors.white,
                     fontWeight: FontWeight.w200,
@@ -91,7 +101,7 @@ class MapScreenState extends State<ProfilePage>
                   mainAxisAlignment:MainAxisAlignment.center,
                   children: <Widget>[
                     new Text(
-                      "UID: 1AT16CS111    ",
+                      "UID: "+ usn,
                       style: new TextStyle(fontSize:18.0,
                           color:Colors.white,
                           fontWeight: FontWeight.w200,
@@ -99,7 +109,13 @@ class MapScreenState extends State<ProfilePage>
                       textAlign: TextAlign.center,
                     ),
                     new Icon(Icons.star_border),
-                    new Text(" 10000",style: new TextStyle(fontSize:18.0,
+
+                    /*new Text(pointItem1.getpusn().toString(),style: new TextStyle(fontSize:18.0,
+                        color:Colors.white,
+                        fontWeight: FontWeight.w200,
+                        fontFamily: "Roboto"),
+                        textAlign: TextAlign.center)*/
+                    new Text("1000",style: new TextStyle(fontSize:18.0,
                         color:Colors.white,
                         fontWeight: FontWeight.w200,
                         fontFamily: "Roboto"),
@@ -122,7 +138,7 @@ class MapScreenState extends State<ProfilePage>
                   //crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     new Icon(Icons.email,),
-                    new Text("    surya@gmail.com",
+                    new Text(mail_id,
                       style: new TextStyle(fontSize:20.0,
                           color:Colors.white,
                           fontWeight: FontWeight.w200,
@@ -141,7 +157,7 @@ class MapScreenState extends State<ProfilePage>
                     //crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       new Icon(Icons.call,),
-                      new Text("  9742721625",
+                      new Text(phone_no,
                         style: new TextStyle(fontSize:20.0,
                             color:Colors.white,
                             fontWeight: FontWeight.w200,
