@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cia_flutter/Constant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = "/splash";
@@ -17,18 +18,19 @@ class SplashScreenState extends State<SplashScreen>
   Animation<double> animation;
 
   startTime() async {
-    var _duration = new Duration(seconds: 3);
-    return new Timer(_duration, navigationPage);
+    var _duration = new Duration(seconds: 1);
+    return new Timer(_duration, _check);
   }
 
   void navigationPage() {
-    //Navigator.of(context).pushReplacementNamed('/loginPage');
-    Navigator.of(context).pushReplacementNamed('/mainscreen');
+    Navigator.of(context).pushReplacementNamed('/loginPage');
+  //  Navigator.of(context).pushReplacementNamed('/mainscreen');
   }
 
   @override
   void initState() {
     super.initState();
+    _check();
     animationController = new AnimationController(
       vsync: this,
       duration: new Duration(seconds: 2),
@@ -79,5 +81,22 @@ class SplashScreenState extends State<SplashScreen>
         ],
       ),
     );
+  }
+
+
+
+
+
+  _check() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'mindstone';
+    final value2 = prefs.getStringList(key);
+    if(value2 != null){
+      Navigator.of(context).pushNamed('/home');
+    }
+    else{
+      Navigator.of(context).pushNamed('/loginPage');
+    }
+
   }
 }
