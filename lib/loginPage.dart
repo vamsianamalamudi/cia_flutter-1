@@ -7,6 +7,8 @@ import 'simple_round_button.dart';
 
 import 'package:cia_flutter/HomeScreen.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 class LoginPage extends StatefulWidget{
 
   static const String routeName = "/loginPage";
@@ -43,8 +45,8 @@ print(body);
                                 },  encoding: Encoding.getByName("utf-8"));
 
     var jsonData =  json.decode(data.body);
-    print("surya");
-    print(jsonData['token']);
+    //print("surya");
+    //print(jsonData['token']);
     token = jsonData['token'];
 
 
@@ -52,11 +54,13 @@ print(body);
     if (data.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       var jsonData =  json.decode(data.body);
-      print("surya");
-      print(jsonData);
+    //  print("surya");
+    //  print(jsonData);
+
+      _save(token,username);
       Navigator.pushReplacement(
           context, new MaterialPageRoute(
-          /*builder: (context) => new HomeScreen(token: token,)*/
+          builder: (context) => new HomeScreen()
       ));
 
       //return Login.fromJson(json.decode(response.body));
@@ -118,6 +122,7 @@ print(body);
               fontSize: 30.0,
             ),),
           )
+
           ,
           Center(
             child: Padding(
@@ -276,11 +281,31 @@ print(body);
   initState() {
 
     super.initState();
+    _check();
     //_login();
 
 
 
 
   }
+
+
+
+  _save(String token,String username) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'mindstone';
+    prefs.setStringList(key,['$username','$token']);
+    print('saved $token \n $username');
+  }
+
+  _check() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'mindstone';
+    final value2 = prefs.getStringList(key);
+    if(value2 != null){
+      Navigator.of(context).pushNamed('/home');
+    }
+  }
+
 
 }
